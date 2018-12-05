@@ -38,4 +38,4 @@ def test_update_quality_brie_quality_does_not_exceed_50():
 
     gilded_rose.update_quality()
 
-    assert items[0].quality == 50
+    assert items[0].quality <= 50

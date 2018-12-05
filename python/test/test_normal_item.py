@@ -44,4 +44,4 @@ def test_update_quality_normal_item_quality_does_not_exceed_50():
 
     gilded_rose.update_quality()
 
-    assert items[0].quality == 50
+    assert items[0].quality <= 50

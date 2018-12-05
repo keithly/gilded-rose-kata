@@ -1,4 +1,4 @@
-from constants import BRIE, SULFURAS, BACKSTAGE_PASS
+from constants import BRIE, SULFURAS, BACKSTAGE_PASS, CONJURED
 
 
 class GildedRose:
@@ -26,9 +26,15 @@ class GildedRose:
 
             if item.name not in [SULFURAS, BRIE, BACKSTAGE_PASS] and item.quality > 0:
                 if item.sell_in > 0:
-                    item.quality = item.quality - 1
+                    if item.name.startswith(CONJURED):
+                        item.quality = item.quality - 2
+                    else:
+                        item.quality = item.quality - 1
                 else:
-                    item.quality = item.quality - 2
+                    if item.name.startswith(CONJURED):
+                        item.quality = item.quality - 4
+                    else:
+                        item.quality = item.quality - 2
 
             if item.quality > 50 and item.name != SULFURAS:
                 item.quality = 50
