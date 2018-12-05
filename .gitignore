@@ -1,2 +1,6 @@
 .idea/workspace.xml
-*.pyc
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.python-version
+.coverage
