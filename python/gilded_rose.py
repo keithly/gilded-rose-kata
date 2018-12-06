@@ -24,7 +24,7 @@ class GildedRose:
                 else:
                     item.quality = 0
 
-            if item.name not in [SULFURAS, BRIE, BACKSTAGE_PASS] and item.quality > 0:
+            if self.is_normal_or_conjured(item) and item.quality > 0:
                 if item.sell_in > 0:
                     if item.name.startswith(CONJURED):
                         item.quality = item.quality - 2
@@ -41,6 +41,9 @@ class GildedRose:
 
             if item.name != SULFURAS:
                 item.sell_in = item.sell_in - 1
+
+    def is_normal_or_conjured(self, item):
+        return item.name not in [SULFURAS, BRIE, BACKSTAGE_PASS]
 
 
 class Item:
